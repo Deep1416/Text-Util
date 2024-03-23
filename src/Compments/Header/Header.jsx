@@ -1,27 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import { MdDarkMode } from "react-icons/md";
 import { MdLightMode } from "react-icons/md";
+import { NavLink, Link } from "react-router-dom";
 function Header() {
-    const toggle = ()=>{
-        false
-    };
+    const [dark , setDark] = useState(false);
     
   return (
     <nav>
       <div>
-        <div className="flex justify-between p-5 bg-red-500">
+        <div className="flex justify-between p-5 bg-white text-gray-600">
           <div className="flex items-center gap-6">
-            <h1>TextUtils</h1>
-            <ul className="flex items-center gap-5 ">
-              <li>Home</li>
-              <li>About Us</li>
-              <li>Contact</li>
+            <Link to="/"><h1 className = "text-xl font-semibold text-[#8BC7DB]">TextUtils</h1></Link>
+            <ul className="flex items-center gap-5 font-semibold">
+              <NavLink to = "/" className={({isActive})=>`${isActive ?"text-sky-400":"black"}`} ><li>Home</li></NavLink>
+              <NavLink to = "/About" className={({isActive})=>`${isActive ?"text-sky-400":"black"}`}><li>About</li></NavLink>
+              {/* <li>About Us</li> */}
+              <NavLink to = "/Contact" className={({isActive})=>`${isActive ?"text-sky-400":"black"}`}><li>Contact</li></NavLink>
             </ul>
           </div>
-          <div className="text-3xl" onClick={toggle} >
+          <div className="text-3xl" onClick={()=>setDark((prev) => !prev)} >
            
             {
-                !toggle ? <MdLightMode /> : <MdDarkMode />
+                !dark ? <MdLightMode /> : <MdDarkMode />
             }
 
           </div>

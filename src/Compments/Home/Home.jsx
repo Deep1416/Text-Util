@@ -19,17 +19,17 @@ function Home({ text, dispatch }) {
   //   const numberOfChar = text++;
 
   return (
-    <div className="text-center">
+    <div className="  my-12 mx-24 px-3">
       <div>
-        <h1>TextUtis - Word Counter, Charecter Counter, Remove Extra Space</h1>
+        <h1 className="text-[40px] text-center font-medium mb-2">TextUtis - Word Counter, Charecter Counter, Remove Extra Space</h1>
         <div>
-          <p>Enter Your Text Here:</p>
+          <p className="text-[22px] font-semibold mb-2 mt-2">Enter Your Text Here:</p>
           <textarea
-            className="bg-blue-500"
+            className="bg-white text-lg font-normal text-black px-2 py-3 mb-4 rounded-md"
             name=""
             id=""
-            cols="100"
-            rows="10"
+            cols="133"
+            rows="7"
             value={text}
             ref={btnRef}
             onChange={(e) => {
@@ -37,9 +37,9 @@ function Home({ text, dispatch }) {
             }}
           ></textarea>
         </div>
-        <div className="flex gap-3 ml-60">
+        <div className="flex gap-3  text-white">
           <button
-            className="bg-blue-500 py-1 px-4"
+            className="bg-[#0d6efd] border-[#0d6efd] border py-2 px-4 rounded-md opacity-60"
             onClick={() => {
               dispatch({ type: "upper" });
             }}
@@ -47,7 +47,7 @@ function Home({ text, dispatch }) {
             Convert Uppercase
           </button>
           <button
-            className="bg-blue-500 py-1 px-4"
+            className="bg-[#0d6efd] border-[#0d6efd] border py-2 px-4 rounded-md opacity-60"
             onClick={() => {
               dispatch({ type: "lower" });
             }}
@@ -55,18 +55,18 @@ function Home({ text, dispatch }) {
             Convert Lowercase
           </button>
           <button
-            className="bg-red-500 py-1 px-4"
+            className=" bg-[#dc3545] border-[#dc3545] border py-2 px-4 rounded-md opacity-60"
             onClick={() => {
               dispatch({ type: "clear" });
             }}
           >
             Clear Text
           </button>
-          <button className="bg-green-500 py-1 px-4" onClick={textCopy}>
+          <button className="bg-[#198754] border-[#198754] border py-2 px-4 rounded-md opacity-60" onClick={textCopy}>
             Copy To Clipboard
           </button>
           <button
-            className="bg-blue-500 py-1 px-4"
+            className="bg-[#0d6efd] border-[#0d6efd] border py-2 px-4 rounded-md opacity-60"
             onClick={() => {
               dispatch({ type: "trim" });
             }}
@@ -74,9 +74,9 @@ function Home({ text, dispatch }) {
             Remove Extra Spaces
           </button>
         </div>
-        <div className="mt-12">Summery Of Your Text</div>
-        <div className="flex flex-col gap-6 mt-6 mb-5">
-          <p>
+        <div className="mt-12 mb-2 text-3xl text-black font-semibold">Summery Of Your Text</div>
+        <div className="flex flex-col gap-6 mt-6 mb-5 text-black font-medium text-lg">
+          <p >
             Nummber of words :{" "}
             {
               text.split(/\s+/).filter((element) => {
@@ -86,26 +86,27 @@ function Home({ text, dispatch }) {
           </p>
           <p>Number of charecters : {text.length}</p>
           <p>
-            Reading Time:
+            Reading Time :
             {0.008 *
               text.split(/\s+/).filter((element) => {
                 return element.length !== 0;
               }).length}
           </p>
         </div>
-      </div>
-      <div>
-        <h1>Preview Document</h1>
+        <div>
+        <h1 className="text-xl font-medium text-center mb-4">Preview Document</h1>
         <textarea
-          className="bg-gray-500"
+          className="bg-white text-lg font-normal text-black px-2 py-3 mb-4 rounded-md"
           name=""
           id=""
-          cols="100"
-          rows="10"
+          cols="133"
+          rows="5"
           value={text}
           readOnly
         ></textarea>
       </div>
+      </div>
+      
     </div>
   );
 }
